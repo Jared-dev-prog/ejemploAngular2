@@ -1,0 +1,25 @@
+<form action="" class="form" [formGroup]="formProject">
+  <div class="fields-container">
+    <div class="fields">
+      <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="name" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Repo</mat-label>
+        <mat-select formControlName="repo">
+          <mat-option value="1">GitHub</mat-option>
+          <mat-option value="2">Azure Repos</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline" class="field-description">
+      <mat-label>Descripción</mat-label>
+      <textarea matInput formControlName="description">
+Lorem ipsum dolor sit, amet consectetur adipisicing elit. </textarea
+      >
+    </mat-form-field>
+  </div>
+</form>
