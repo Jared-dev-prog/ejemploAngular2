@@ -1,0 +1,67 @@
+<section>
+  <h4>Arrastra los elementos que deseas del cuadro de derecha a izquierda</h4>
+
+  <div class="drag-drop-container">
+    <div class="work-container mat-elevation-z1">
+      <div
+        cdkDropList
+        #projectList="cdkDropList"
+        [cdkDropListData]="projects"
+        [cdkDropListConnectedTo]="[artList]"
+        class="projects-list"
+        (cdkDropListDropped)="drop($event)"
+        cdk-drop-list-receiving
+      >
+        <div
+          class="project-box mat-elevation-z1"
+          *ngFor="let project of projects"
+        >
+          <div>
+            <div class="icon-close">
+              <mat-icon (click)="deleteItem(project.id)">cancel</mat-icon>
+            </div>
+            <img src="{{ project.image }}" alt="" />
+            <form [formGroup]="project.form">
+              <mat-form-field appearance="fill">
+                <mat-label>Nombre:</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  id="name"
+                  name="name"
+                  formControlName="name"
+                />
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Descripción:</mat-label>
+                <textarea
+                  matInput
+                  id="description"
+                  name="description"
+                  formControlName="description"
+                ></textarea>
+              </mat-form-field>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="arts-container mat-elevation-z1">
+      <div
+        cdkDropList
+        cdkDropListSortingDisabled
+        #artList="cdkDropList"
+        [cdkDropListData]="arts"
+        [cdkDropListConnectedTo]="[projectList]"
+        class="arts-list"
+        (cdkDropListDropped)="drop($event)"
+      >
+        <div class="art-box" cdkDrag *ngFor="let art of arts">
+          <img src="{{ art.image }}" alt="" />
+          <h5>{{ art.name }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
