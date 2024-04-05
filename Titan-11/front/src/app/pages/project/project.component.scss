@@ -1,0 +1,30 @@
+h1 {
+  color: #3c1053;
+}
+
+.container-elements {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 3rem 5rem;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  column-gap: 2rem;
+
+  button {
+    width: 100px;
+    max-width: 100%;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+  }
+
+  .btn-enabled {
+    background-color: #963cbd;
+    color: #fff;
+  }
+}
