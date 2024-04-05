@@ -1,0 +1,33 @@
+<main class="container">
+  <h1>Crear nuevo proyecto</h1>
+
+  <section class="container-elements mat-elevation-z1">
+    <app-form-project></app-form-project>
+    <app-drag-drop *ngIf="loading" [catalogArt]="catalogArt"></app-drag-drop>
+
+    <div class="buttons-container">
+      <button
+        mat-raised-button
+        [disabled]="!formProject.formProject.valid"
+        [ngClass]="{
+          'btn-enabled': formProject.formProject.valid,
+          '': !formProject.formProject.valid
+        }"
+      >
+        Guardar
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="
+          !formProject.formProject.valid ||
+          formDragDrop.projects.length <= 0 ||
+          !validateFormItem()
+        "
+        (click)="validateFormItem()"
+      >
+        Crear
+      </button>
+    </div>
+  </section>
+</main>
